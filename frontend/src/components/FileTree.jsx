@@ -20,7 +20,7 @@ export default function FileTree({ structure, path = "", selectedFile, onSelectF
 function FileTreeNode({ item, path, selectedFile, onSelectFile }) {
   const [isOpen, setIsOpen] = useState(true);
   const isFolder = item.type === 'folder';
-  const fullPath = path ? \`\${path}/\${item.name}\` : item.name;
+  const fullPath = path ? `${path}/${item.name}` : item.name;
   const isSelected = selectedFile === fullPath;
 
   const handleToggle = () => {
@@ -41,7 +41,7 @@ function FileTreeNode({ item, path, selectedFile, onSelectFile }) {
   return (
     <li className="select-none">
       <div 
-        className={\`flex items-center py-1.5 px-2 rounded-md cursor-pointer transition-colors \${isSelected ? 'bg-brand-500/20 text-brand-300' : 'text-gray-300 hover:bg-gray-800'}\`}
+        className={`flex items-center py-1.5 px-2 rounded-md cursor-pointer transition-colors ${isSelected ? 'bg-brand-500/20 text-brand-300' : 'text-gray-300 hover:bg-gray-800'}`}
         onClick={handleToggle}
       >
         <span className="w-4 h-4 mr-1 flex items-center justify-center text-gray-400">

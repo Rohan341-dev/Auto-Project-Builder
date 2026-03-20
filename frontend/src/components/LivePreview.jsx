@@ -10,14 +10,14 @@ export default function LivePreview({ filesMap }) {
       
       // Inject CSS
       if (filesMap['css/style.css']) {
-         const styleTag = \`<style>\${filesMap['css/style.css'].content}</style>\`;
-         htmlContent = htmlContent.replace('</head>', \`\${styleTag}\\n</head>\`);
+         const styleTag = `<style>${filesMap['css/style.css'].content}</style>`;
+         htmlContent = htmlContent.replace('</head>', `${styleTag}\n</head>`);
       }
 
       // Inject JS
       if (filesMap['js/main.js']) {
-         const scriptTag = \`<script>\${filesMap['js/main.js'].content}</script>\`;
-         htmlContent = htmlContent.replace('</body>', \`\${scriptTag}\\n</body>\`);
+         const scriptTag = `<script>${filesMap['js/main.js'].content}</script>`;
+         htmlContent = htmlContent.replace('</body>', `${scriptTag}\n</body>`);
       }
 
       setSrcDoc(htmlContent);

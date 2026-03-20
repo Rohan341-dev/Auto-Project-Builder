@@ -11,7 +11,7 @@ export default function ProjectDashboard({ data, onReset }) {
   const buildFileMap = (structure, path = "") => {
     let map = {};
     for (const item of structure) {
-      const fullPath = path ? \`\${path}/\${item.name}\` : item.name;
+      const fullPath = path ? `${path}/${item.name}` : item.name;
       if (item.type === 'file') {
         map[fullPath] = item;
       } else if (item.type === 'folder') {
@@ -38,7 +38,7 @@ export default function ProjectDashboard({ data, onReset }) {
       zip.file(path, fileObj.content);
     });
     const blob = await zip.generateAsync({ type: 'blob' });
-    saveAs(blob, \`\${data.name}.zip\`);
+    saveAs(blob, `${data.name}.zip`);
   };
 
   const getLanguage = (filename) => {
@@ -65,9 +65,9 @@ export default function ProjectDashboard({ data, onReset }) {
         </div>
         
         <div className="flex bg-gray-800 p-1 rounded-lg">
-           <button onClick={() => setViewMode('editor')} className={\`px-4 py-1.5 text-sm font-medium rounded-md transition-all \${viewMode === 'editor' ? 'bg-brand-600 shadow' : 'text-gray-400 hover:text-white'}\`}>Editor</button>
-           <button onClick={() => setViewMode('split')} className={\`px-4 py-1.5 text-sm font-medium rounded-md transition-all \${viewMode === 'split' ? 'bg-brand-600 shadow' : 'text-gray-400 hover:text-white'}\`}>Split</button>
-           <button onClick={() => setViewMode('preview')} className={\`px-4 py-1.5 text-sm font-medium rounded-md transition-all \${viewMode === 'preview' ? 'bg-brand-600 shadow' : 'text-gray-400 hover:text-white'}\`}>Preview</button>
+           <button onClick={() => setViewMode('editor')} className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${viewMode === 'editor' ? 'bg-brand-600 shadow' : 'text-gray-400 hover:text-white'}`}>Editor</button>
+           <button onClick={() => setViewMode('split')} className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${viewMode === 'split' ? 'bg-brand-600 shadow' : 'text-gray-400 hover:text-white'}`}>Split</button>
+           <button onClick={() => setViewMode('preview')} className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${viewMode === 'preview' ? 'bg-brand-600 shadow' : 'text-gray-400 hover:text-white'}`}>Preview</button>
         </div>
 
         <button 
