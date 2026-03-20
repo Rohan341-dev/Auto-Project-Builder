@@ -111,8 +111,7 @@ app.post('/api/generate', (req, res) => {
         res.json(mockProject);
     }, 2500);
 });
-
 app.listen(PORT, () => {
-    console.log(\`Backend server running on http://localhost:\${PORT}\`);
+    console.log("Backend server running on http://localhost:" + PORT);
     console.log('Ready to receive Mock AI generation requests.');
 });
